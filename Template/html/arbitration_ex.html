@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <title>仲裁</title>
+    <style>
+        h1 {
+            text-align: left;
+        }
+
+        ul {
+            width: 100;
+            text-align: left;
+            font-size: 20px;
+            list-style-type: none;
+        }
+        table{
+            width: 100%;
+        }
+        body {
+            color: #fff;
+            background-color: #283B47;
+        }
+        .arbitration{
+            position: relative;
+            border-radius: 20px;
+            border: 5px solid #ffc;
+            margin: 10px;
+            background-color: #2C414E;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<!--
+生成图片的宽度
+-->
+<w>
+    1290
+</w>
+<h1>仲裁</h1>
+<hr />
+<div class="arbitration">
+    <table>
+        <tr th:each="arbit : ${arbitrations}">
+            <td style="text-align: left;">
+                <ul>
+                    <li th:text="${arbit.type}+' - '+${arbit.enemy}" style="color: #FF7542;"></li>
+                    <li th:text="${arbit.node}" style="color: #7595FF;"></li>
+                    <li th:text="${arbit.etc}" style="color: #FF7474;"></li>
+                    <li th:text="'开始时间：'+${#dates.format(arbit.activation, 'yyyy-MM-dd HH:mm:ss')}" style="color: #FF7474;"></li>
+                </ul>
+            </td>
+            <td><img th:src="@{'/img/faction/'+${arbit.enemy}+'.png'}" /></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
