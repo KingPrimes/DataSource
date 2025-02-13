@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <style>
+        hr {
+            margin: 2px;
+        }
+
+        body {
+            color: #fff;
+            background-color: #122028;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        h2 {
+            text-align: left;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<w>1400</w>
+<div>
+    <hr/>
+    <div th:each="f:${fissues}">
+        <div class="content">
+            <table>
+                <tr>
+                    <td><img
+                            th:src="@{'/img/'+${f.tierNum == 1 ? 'lith' :
+                            (f.tierNum == 2 ? 'meso' :
+                            (f.tierNum == 3 ? 'neo' :
+                            (f.tierNum == 4 ? 'relics/axi' :
+                            (f.tierNum == 5 ? 'relics/Lich':
+                            'relics/omnia'))))}+'.png'}"
+                            alt=""/></td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>
+                                <span class="task" th:text="${f.missionType} +'-'+ ${f.enemy}"></span>
+                            </li>
+                            <li>
+                                <span class="fissues-type"
+                                      th:text="${f.tierNum == 1 ? '古纪 裂隙' :
+                                      (f.tierNum == 2 ? '前纪 裂隙' :
+                                      (f.tierNum == 3 ? '中纪 裂隙' :
+                                      (f.tierNum == 4 ? '后纪 裂隙' :
+                                      (f.tierNum == 5 ? '安魂 裂隙':
+                                      '全能 裂隙' ))))}"></span>
+                            </li>
+                            <li th:text="${f.node}"></li>
+                            <li th:if="${!f.isStorm and !f.isHard}" th:text="'普通'"></li>
+                            <li th:if="${f.isStorm}" th:text="'九重天'" style="color: #0d6efd"></li>
+                            <li th:if="${f.isHard}" th:text="'钢铁'" style="color: #761c19"></li>
+                            <li th:text="${f.eta}"></li>
+                        </ul>
+                    </td>
+                    <td><img th:src="@{'/img/faction/'+ ${f.enemy == 'The Murmur'? 'The-Murmur' : f.enemy} +'.png'}" alt=""/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -5,24 +5,24 @@
     <link th:href="@{/css/index.css}" rel="stylesheet" href="../css/index.css"/>
     <title>平原</title>
     <style>
-			h1 {
-				text-align: center;
-			}
-			td {
-				text-align: center;
-				padding: 5px;
-			}
+        h1 {
+            text-align: center;
+        }
+        td {
+            text-align: center;
+            padding: 5px;
+        }
 
-			table {
-				width: 100%;
-				font-size: 18px;
-			}
-			.warm{
-				color: #ecd04b;
-			}
-			.cold{
-				color: #4077e8;
-			}
+        table {
+            width: 100%;
+            font-size: 18px;
+        }
+        .warm{
+            color: #ecd04b;
+        }
+        .cold{
+            color: #4077e8;
+        }
     </style>
 </head>
 
@@ -51,8 +51,8 @@
                             th:classappend="${cetus.isDay} ? 'warm' : 'cold'"></td>
                         <td th:text="${vallis.isWarm}? '温暖' : '寒冷'"
                             th:classappend="${vallis.isWarm} ? 'warm' : 'cold'"></td>
-                        <td th:text="${cambion.active}"
-                            th:classappend="${cambion.active} == 'FASS'? 'warm' : 'cold'"></td>
+                        <td th:text="${cambion.dump}"
+                            th:classappend="${cambion.dump} == 'FASS'? 'warm' : 'cold'"></td>
                         <td th:text="${zariman.isCorpus} ? 'CORPUS' : ${zariman.state}"
                             th:classappend="${zariman.isCorpus} ? 'cold' : 'warm'"></td>
                     </tr>
@@ -60,8 +60,8 @@
                         <td><img th:src="${earth.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
                         <td><img th:src="${cetus.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
                         <td><img th:src="${vallis.isWarm} ? @{/img/day.png} : @{/img/cold.png}"/></td>
-                        <td><img th:if="${cambion.active} == FASS" th:src="@{/img/day.png}"/>
-                            <img th:if="${cambion.active} != FASS" th:src="@{/img/night.png}"/>
+                        <td><img th:if="${cambion.dump} == FASS" th:src="@{/img/day.png}"/>
+                            <img th:if="${cambion.dump} != FASS" th:src="@{/img/night.png}"/>
                         </td>
                         <td></td>
                     </tr>
