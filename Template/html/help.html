@@ -1,27 +1,147 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Help</title>
-        <link href="../css/index.css" rel="stylesheet" th:href="@{/css/index.css}"/>
-    </head>
-    <body style="background-color: #FFFFFF">
-    <w>2500</w>
-        <div style="text-align: center">
-            <table>
-                <thead>
-                    <tr style="color:#006dcc;">
-                        <th>指令</th>
-                        <th>权限等级</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="c:${codes}">
-                        <td th:text="${c.key}" th:style="${c.value == '管理员用户' ? 'color: #0aa143' : (c.value == '超级管理员用户' ? 'color: red' : '')}"></td>
-                        <td th:text="${c.value}" th:style="${c.value == '管理员用户' ? 'color: #0aa143' : (c.value == '超级管理员用户' ? 'color: red' : '')}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>帮助中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <style>
+        body {
+            background: #f8f9fa;
+            line-height: 1.6;
+            padding: 40px;
+            color: #333;
+        }
+
+        /* 卡片式容器 */
+        .help-container {
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 40px;
+        }
+
+        /* 标题样式 */
+        .help-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* 现代表格样式 */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 25px 0;
+            background: #FFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            padding: 18px 20px;
+            font-weight: 500;
+            text-align: left;
+            font-size: 16px;
+            position: relative;
+        }
+
+        th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 15px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 8px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 8px;
+        }
+
+        /* 斑马纹效果 */
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* 权限颜色标记 */
+        .admin-color {
+            color: #10b981 !important; /* 管理员绿色 */
+            font-weight: 600;
+        }
+
+        .super-admin-color {
+            color: #ef4444 !important; /* 超级管理员红色 */
+            font-weight: 600;
+        }
+
+        /* 表格行悬停效果 */
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* 响应式处理 */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .help-container {
+                padding: 25px;
+            }
+
+            td, th {
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<w>1800</w>
+<body>
+<div class="help-container">
+    <h1 class="help-title">帮助中心</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>指令</th>
+            <th>权限等级</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c:${codes}">
+            <td th:text="${c.key}"
+                th:classappend="${c.value == '管理员用户'} ? 'admin-color' :
+                                      (${c.value == '超级管理员用户'} ? 'super-admin-color' : '')"></td>
+            <td th:text="${c.value}"
+                th:classappend="${c.value == '管理员用户'} ? 'admin-color' :
+                                      (${c.value == '超级管理员用户'} ? 'super-admin-color' : '')"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
 </html>

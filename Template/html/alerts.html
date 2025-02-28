@@ -3,31 +3,105 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
     <title>警报</title>
     <style>
+        :root {
+            --primary: #4A90E2;       /* 主色调 */
+            --secondary: #6C5CE7;     /* 辅色调 */
+            --background: #1A2332;    /* 深色背景 */
+            --surface: #2D3B4D;       /* 卡片背景 */
+            --on-surface: #E0E0E0;    /* 主要文字 */
+            --accent: #00C853;        /* 强调色 */
+        }
+
+        body {
+            color: var(--on-surface);
+            background: var(--background);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
         h1 {
             text-align: center;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .arbitration {
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            margin: 2rem auto;
+            padding: 1.5rem;
+            max-width: 1200px;
+            transition: transform 0.3s ease;
+        }
+
+        .arbitration:hover {
+            transform: translateY(-4px);
         }
 
         table {
             width: 100%;
+            border-collapse: collapse;
+            backdrop-filter: blur(4px);
+        }
+
+        th {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            position: sticky;
+            top: 0;
         }
 
         td {
-            text-align: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background 0.3s ease;
         }
 
-        body {
-            color: #fff;
-            background-color: #283B47;
+        tr:last-child td {
+            border-bottom: none;
         }
 
-        .arbitration {
-            border-radius: 15px;
-            border: 5px solid #ffc;
-            margin: 8px;
-            background-color: #2C414E;
+        tr:hover td {
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* 斑马纹效果 */
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* 响应式表格 */
+        @media (max-width: 768px) {
+            .arbitration {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        /* 奖励文字样式 */
+        [style*="#3c879c"],  /* 星币颜色 */
+        [style*="#9ec5fe"] { /* 物品颜色 */
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin: 0.2rem;
+            font-weight: 500;
+            background: rgba(255,255,255,0.1);
         }
 
     </style>

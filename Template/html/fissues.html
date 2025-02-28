@@ -1,32 +1,130 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
-	<meta charset="utf-8"/>
-	<link th:href="@{/css/index.css}" rel="stylesheet"/>
+	<meta charset="utf-8" />
+	<title>虚空裂隙</title>
+	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
 	<style>
-		hr {
-			margin: 2px;
-		}
-
 		body {
-			color: #fff;
-			background-color: #122028;
+			color: #e1e7ec;
+			background-color: #0d1620;
+			padding: 20px;
 		}
 
+		/* 头部样式 */
+		.header {
+			background: linear-gradient(90deg, #1a2c38, #0d1620);
+			border-radius: 12px;
+			padding: 20px;
+			margin-bottom: 15px;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		.header span {
+			font-size: 28px;
+			font-weight: 700;
+			color: #61dafb;
+			text-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
+			letter-spacing: 2px;
+		}
+
+		/* 内容卡片样式 */
+		.content {
+			background: linear-gradient(135deg, #1a2c38, #162736);
+			border-radius: 12px;
+			margin-bottom: 15px;
+			padding: 15px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+			transition: transform 0.2s ease;
+			border-left: 4px solid #61dafb;
+		}
+
+		/* 表格样式 */
 		table {
 			width: 100%;
+			border-collapse: collapse;
 		}
 
-		h2 {
-			text-align: left;
+		td {
+			padding: 10px;
+			vertical-align: middle;
+		}
+
+		td:first-child {
+			width: 80px;
+			text-align: center;
+		}
+
+		td:last-child {
+			width: 60px;
+			text-align: center;
+		}
+
+		/* 图片样式 */
+		img {
+			max-width: 50px;
+			height: auto;
+			border-radius: 8px;
+			filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+		}
+
+		/* 列表样式 */
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		li {
+			margin-bottom: 6px;
+			font-size: 15px;
+		}
+
+		/* 任务类型样式 */
+		.task {
+			color: #ff7e5f;
+			font-weight: bold;
+			font-size: 16px;
+		}
+
+		/* 裂隙类型样式 */
+		.fissues-type {
+			color: #7bed9f;
+			font-weight: bold;
+		}
+
+		/* 时间样式 - 根据剩余时间变色 */
+		.time-low {
+			color: #ff6b6b;
+		}
+
+		.time-medium {
+			color: #feca57;
+		}
+
+		.time-high {
+			color: #1dd1a1;
+		}
+
+		/* 分隔线 */
+		hr {
+			border: 0;
+			height: 1px;
+			background: linear-gradient(to right, transparent, #61dafb, transparent);
+			margin: 10px 0;
+		}
+
+		/* 位置信息 */
+		.location {
+			color: #dfe6e9;
+			font-weight: 500;
 		}
 	</style>
-	<title></title>
 </head>
 <body>
 <w>1400</w>
 <div>
-	<div class="head-fissues">
+	<div class="header">
 		<span th:text="${type == 0 ? '虚空裂隙' : (type == 1 ? '九重天裂隙' : (type == 2 ? '钢铁裂隙' : '')) }"></span>
 	</div>
 	<hr/>

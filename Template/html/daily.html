@@ -1,69 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>每日特惠</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #1A2332;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            -fs-pdf-font-embed: embed;
+        }
+
+        .card {
+            background-color: #2D3B4D;
+            border-radius: 12px;
+            border: 2px solid #3C4B5E;
+            padding: 25px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #4EC0FB;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        td {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        td:first-child {
+            color: #A0B1C5;
+            width: 30%;
+        }
+
+        td:last-child {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .discount {
+            color: #FF6B6B;
+        }
+
+        .remaining {
+            color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
-<!--
-       生成图片的宽度
-    -->
-<w>
-1290
-</w>
-<div>
-    <div class="card">
-        <div class="card-layer">
-            <div class="daily">
-
-                <h1>每日特惠</h1>
-                <table>
-                    <tr>
-                        <td>
-                            物品名称：
-                        </td>
-                        <td th:text="${deals.item}">#Item</td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            原价/现价：
-                        </td>
-                        <td th:text="${deals.originalPrice}+'/'+${deals.salePrice}">
-                            #Origin/#Sale
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            折扣比：
-                        </td>
-                        <td th:text="${deals.discount}+' %'">
-                            #Discount
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            总/余：
-                        </td>
-                        <td th:text="${deals.total} == ${deals.sold}?${deals.total}+' / 0' : ${deals.total}+' / '+ ${deals.sold}">
-                            #Total/#Sold
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            剩余时间：
-                        </td>
-                        <td th:text="${deals.eta}">
-                            #End
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-
-    </div>
+<w>1290</w>
+<div class="card">
+    <h1>每日特惠</h1>
+    <table>
+        <tr>
+            <td>物品名称：</td>
+            <td th:text="${deals.item}"></td>
+        </tr>
+        <tr>
+            <td>原价/现价：</td>
+            <td>
+                <span th:text="${deals.originalPrice}" style="text-decoration: line-through;"></span>
+                <span> / </span>
+                <span th:text="${deals.salePrice}" style="color: #4CAF50;"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>折扣比：</td>
+            <td class="discount" th:text="${deals.discount} + ' %'"></td>
+        </tr>
+        <tr>
+            <td>总/余：</td>
+            <td>
+                <span th:text="${deals.total}"></span>
+                <span> / </span>
+                <span class="remaining" th:text="${deals.total} == ${deals.sold} ? '0' : ${deals.sold}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>剩余时间：</td>
+            <td th:text="${deals.eta}"></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

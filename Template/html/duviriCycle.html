@@ -2,33 +2,94 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../css/index.css"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
     <title>双衍王境</title>
     <style>
+        body {
+            background-color: #1A2332;
+            color: #E0E0E0;
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            -fs-pdf-font-embed: embed;
+        }
+
+        h1 {
+            color: #4EC0FB;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #2D3B4D;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background-color: #36465C;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        thead td {
+            font-weight: bold;
+            font-size: 20px;
+            color: #FFD700;
+        }
+
         .container {
             display: flex;
-            text-align: center;
+            flex-wrap: wrap;
             justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
         }
+
         .container li {
-            margin-right: 20px; /* 可以根据需求调整间距 */
+            margin: 10px;
+            text-align: center;
         }
+
+        .container img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 5px;
+            -fs-fit-images-to-width: 80px;
+        }
+
+        .container p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
         .hard li {
-            margin-top: 10px; /* 钢铁的间距为0 */
-        }
-        li img{
-            width: 80px
+            background-color: #36465C;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+            color: #FF6B6B;
         }
     </style>
 </head>
 <body>
-<!-- 图片的宽度 按像素计算 -->
 <w>2600</w>
 
+<h1>双衍王境</h1>
 <table>
-    <caption>
-        <h1>双衍王境</h1>
-    </caption>
     <thead>
     <tr>
         <td>普通</td>
@@ -38,19 +99,19 @@
     <tbody>
     <tr>
         <td>
-           <ul class="container">
-               <li th:each="n : ${normal}">
-                   <img th:src="|img/tenno/${#strings.toLowerCase(n)}.png|" alt=""/>
-                   <p><span th:text="${n}"></span></p>
-               </li>
-           </ul>
+            <ul class="container">
+                <li th:each="n : ${normal}">
+                    <img th:src="|img/tenno/${#strings.toLowerCase(n)}.png|" alt=""/>
+                    <p><span th:text="${n}"></span></p>
+                </li>
+            </ul>
         </td>
         <td>
-           <ul class="container hard">
-               <li th:each="h:${hard}">
-                   <span th:text="${h}">----</span>
-               </li>
-           </ul>
+            <ul class="container hard">
+                <li th:each="h : ${hard}">
+                    <span th:text="${h}">----</span>
+                </li>
+            </ul>
         </td>
     </tr>
     </tbody>

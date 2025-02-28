@@ -1,75 +1,103 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8" />
-		<link th:href="@{/css/index.css}" rel="stylesheet" />
-		<title>突击</title>
-		<style>
-			.assault {
-				text-align: left;
-				font-size: 18px;
-			}
+<head>
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+	<title>突击</title>
+	<style>
+		body {
+			color: #E0E0E0;
+			background-color: #1A2332;
+			margin: 0;
+			padding: 20px;
+			line-height: 1.6;
+			-fs-pdf-font-embed: embed;
+		}
 
-			.time {
-				text-align: right;
-				font-size: 18px;
-			}
+		.contents {
+			background-color: #2D3B4D;
+			border-radius: 12px;
+			border: 2px solid #3C4B5E;
+			padding: 20px;
+			margin-bottom: 20px;
+			box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+		}
 
-			body {
-				color: #fff;
-				background-color: #283B47;
-			}
+		.head {
+			width: 100%;
+			display: table;
+			margin-bottom: 15px;
+		}
 
-			table {
-				width: 100%;
-				text-align: left;
-			}
+		.head td:first-child {
+			font-size: 28px;
+			color: #4EC0FB;
+			font-weight: bold;
+		}
 
-			.head {
-				width: 100%;
-				table-layout: fixed;
-			}
+		.head td:last-child {
+			font-size: 20px;
+			color: #4EC0FB;
+			text-align: right;
+		}
 
-			.contents {
-				border-bottom: 2px solid;
+		hr {
+			border: 0;
+			height: 1px;
+			background: linear-gradient(to right, transparent, #4EC0FB, transparent);
+			margin: 15px 0;
+		}
 
-				margin: 15px;
-				background-color: #2C414E;
-			}
-		</style>
-	</head>
-	<body>
-		<!--
-   生成图片的宽度
--->
-		<w>
-			1580
-		</w>
-		<div class="contents">
-			<table class="head">
-				<tr>
-					<td style="text-align: left; font-size: 24px; color: #4EC0FB">
-						突击
-					</td>
-					<td th:text="${assault.eta}" style="text-align: right;font-size: 20px; color: #4EC0FB">
+		.mission-table {
+			width: 100%;
+			margin-bottom: 15px;
+			background-color: #36465C;
+			border-radius: 8px;
+			padding: 15px;
+		}
 
-					</td>
-				</tr>
-			</table>
+		.mission-type {
+			font-size: 28px;
+			color: #FF5E5E;
+			font-weight: bold;
+			padding-bottom: 10px;
+		}
 
-			<hr />
-			<table th:each="item:${assault.variants}">
-				<tr>
-					<td th:text="${item.missionType}" style="font-size: 24px; color: #FA8B9D;"></td>
-				</tr>
-				<tr>
-					<td th:text="${item.node}" style="color: #6E86ED;"></td>
-				</tr>
-				<tr>
-					<td th:text="'状态: '+${item.modifier}"></td>
-				</tr>
-			</table>
+		.mission-node {
+			font-size: 20px;
+			color: #6E86ED;
+			padding-bottom: 5px;
+		}
 
-		</div>
-	</body>
+		.mission-modifier {
+			font-size: 16px;
+			color: #A0B1C5;
+		}
+	</style>
+</head>
+<body>
+<w>1580</w>
+<div class="contents">
+	<table class="head">
+		<tr>
+			<td>突击</td>
+			<td th:text="${assault.eta}"></td>
+		</tr>
+	</table>
+
+	<hr />
+
+	<table th:each="item : ${assault.variants}" class="mission-table">
+		<tr>
+			<td class="mission-type" th:text="${item.missionType}"></td>
+		</tr>
+		<tr>
+			<td class="mission-node" th:text="${item.node}"></td>
+		</tr>
+		<tr>
+			<td class="mission-modifier" th:text="'状态: ' + ${item.modifier}"></td>
+		</tr>
+	</table>
+</div>
+</body>
 </html>
