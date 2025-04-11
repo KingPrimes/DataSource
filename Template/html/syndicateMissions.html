@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${sm.syndicate} + '赏金任务'">平原赏金</title>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <style>
+        /* 基础重置 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+
+        }
+
+        /* 主容器 */
+        .bounties-container {
+            width: 1550px;
+            margin: 0 auto;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #7f8c8d;
+            font-size: 18px;
+            margin: 0 0 20px;
+        }
+
+        /* 赏金卡片布局 */
+        .bounties-grid {
+            font-size: 0; /* 消除间隙 */
+            line-height: 0;
+        }
+
+        .bounty-card {
+            display: inline-block;
+            width: 500px; /* (1200 - 8*6)/3 = 386px */
+            margin: 8px;
+            vertical-align: top;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 奖励项4列布局 */
+        .reward-list {
+            background: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 12px 0;
+            font-size: 0; /* 关键：消除间隙 */
+        }
+
+        .reward-item {
+            display: inline-block;
+            width: 24.5%; /* 留出0.5%作为间隙 */
+            margin: 0 0.2%;
+            padding: 4px;
+            box-sizing: border-box;
+            font-size: 13px;
+            color: #27ae60;
+            word-break: break-all;
+            border: 1px solid #d3e9d3;
+            background: #f7fcf7;
+            vertical-align: top;
+            line-height: 1.4;
+        }
+
+        /* 信息标签样式 */
+        .mission-level {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        .mission-type {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 6px;
+            margin: 0 0 12px;
+            font-size: 14px;
+        }
+
+        .mr-requirement {
+            color: #e74c3c;
+            font-size: 13px;
+            margin: 8px 0 0;
+        }
+
+        /* 打印兼容样式 */
+        @media print {
+            .bounty-card {
+                float: left !important;
+                page-break-inside: avoid;
+            }
+
+            .bounty-card:nth-child(3n+1) {
+                clear: both;
+            }
+
+            .reward-item {
+                width: 24.5% !important;
+                margin: 0 0.25% !important;
+                -fs-keep-with-inline: always; /* 防止分页截断 */
+            }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .bounties-container {
+                width: 100% !important;
+                padding: 10px;
+            }
+
+            .bounty-card {
+                width: 100% !important;
+                max-width: 400px;
+                margin: 8px 0;
+            }
+
+            .reward-item {
+                width: 49% !important;
+                margin: 0 0.5% 5px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="card">
+        <div class="card-layer">
+            <div class="bounties-container">
+                <h1 th:text="${sm.syndicate} + '赏金'">平原赏金</h1>
+                <h2 th:text="'结束时间： '+${#dates.format(sm.expiry, 'yyyy-MM-dd HH:mm')}"></h2>
+                <div class="bounties-grid">
+                    <div class="bounty-card" th:each="job,stat : ${sm.jobs}">
+                        <div class="bounty-content">
+                            <p class="mission-level"
+                               th:text="'赏金' + ${stat.count} + ' 等级：' + ${job.enemyLevels[0]} + '-' + ${job.enemyLevels[1]}"></p>
+
+                            <p class="mission-type" th:text="'任务类型：' + ${job.type}"></p>
+
+                            <div class="reward-list">
+                                <p th:each="reward : ${job.rewardPool}"
+                                   th:text="${reward}"
+                                   class="reward-item"></p>
+                            </div>
+
+                            <div th:if="${job.minMR != null}">
+                                <p class="mr-requirement" th:text="'最低段位：' + ${job.minMR}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
