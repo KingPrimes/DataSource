@@ -1,0 +1,227 @@
+[
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVTitaniaPrimeSinglePack",
+    "name": "Titania Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Titania Prime、鲮鲤剑 Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVTitaniaGaraPrimeDualPack",
+    "name": "Titania 和 Gara Prime 双重组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Titania Prime、Gara Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVGaraPrimeSinglePack",
+    "name": "Gara Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Gara Prime、碎裂者 Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVVoidTraceBundle",
+    "name": "虚空光体组合包",
+    "description": "内含5个虚空光体。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVIridosArmorSet",
+    "name": "炫彩护甲套装",
+    "description": "以坚不可摧的风格战斗。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVCastellanPrimeKavatArmor",
+    "name": "卡斯特兰 Prime 库娃组合包",
+    "description": "通过这个组合包唤醒 Prime 先锋部队引以为傲的卡斯特兰库娃血脉。内含卡斯特兰Prime护甲、莎贝拉Prime基因伪装包、库娃孵化器模块和库娃初心者套装。"
+  },
+  {
+    "uniqueName": "/Lotus/StoreItems/Types/Keys/MummyQuestKeyBlueprint",
+    "name": "Inaros 之沙 蓝图",
+    "description": "帮 Baro Ki'Teer 突袭一座古老的火星古墓并盗取一件神秘的宝物。"
+  },
+  {
+    "uniqueName": "/Lotus/StoreItems/Types/BoosterPacks/BaroTreasureBox",
+    "name": "虚空余货",
+    "description": "随机出售一件未贴标的库存余货，恕不提供挑选。每位顾客限购一个。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/Recipes/Weapons/TwinVipersWraithBlueprint",
+    "name": "双子蝰蛇·亡魂 蓝图",
+    "description": ""
+  },
+  {
+    "uniqueName": "/Lotus/Types/Recipes/Weapons/DeraVandalBlueprint",
+    "name": "德拉·破坏者 蓝图",
+    "description": ""
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNecraloidBundle",
+    "name": "殁世械灵组合包",
+    "description": "你是否像其他人一样虫化了？"
+  },
+  {
+    "uniqueName": "/Lotus/StoreItems/Types/Game/ShipScenes/PrimeLisetFiligreeScene",
+    "name": "精工掐丝 Prime 装饰",
+    "description": "用灵感源自 Orokin 的华丽的点缀物来重新装饰你的轨道飞行器。"
+  },
+  {
+    "uniqueName": "/Lotus/StoreItems/Types/Game/ShipScenes/CorpusShipScene",
+    "name": "Corpus 内部装饰",
+    "description": "通过这些回收的装饰物来为你的轨道飞行器内部带来工业化风格。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVVayasPrimeAccessories",
+    "name": "指挥官盛年 Prime 配件",
+    "description": "一套给指挥官使用的时尚配件。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVAviaPrimeArmorSet",
+    "name": "飞空 Prime 护甲套装",
+    "description": "灵感源自于 [盗贼] 和 [席芭莉丝] 的流线型设计，这件华丽的金色护甲只能用于装饰高贵的战士。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVVervArmorSet",
+    "name": "热枕护甲套装",
+    "description": "以坚不可摧的风格战斗。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVVervSentrexSentAccessories",
+    "name": "热枕圣塔斯守护配件",
+    "description": "一组最新外观包来提升你的守护宠物。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/PrimeColorPackA",
+    "name": "颜料包 Prime",
+    "description": "使用这些标志性颜色，让任何战甲都拥有Prime的奢华气息。包含：\nPrime 饰面 调色盘\nPrime 底漆 调色盘"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVEquinoxWukongPrimeDualPack",
+    "name": "Equinox 和 Wukong Prime 双重组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Equinox Prime、Wukong Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVRevenantBaruukPrimeDualPack",
+    "name": "Revenant 和 Baruuk Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Revenant Prime、Baruuk Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNekrosOberonPrimeDualPack",
+    "name": "Nekros 和 Oberon Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Nekros Prime、Oberon Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVBansheeMiragePrimeDualPack",
+    "name": "Banshee 和 Mirage Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Banshee Prime、Mirage Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNidusSarynPrimeDualPack",
+    "name": "Nidus 和 Saryn Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Nidus Prime、Saryn Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVInarosAshPrimeDualPack",
+    "name": "Inaros 和 Ash Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Inaros Prime、Ash Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVIvaraOberonPrimeDualPack",
+    "name": "Ivara 和 Oberon Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Ivara Prime、Oberon Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVGarudaKhoraPrimeDualPack",
+    "name": "Garuda 和 Khora Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Garuda Prime、Khora Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNovaTrinityPrimeDualPack",
+    "name": "Nova 和 Trinity Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Nova Prime、Trinity Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNezhaOctaviaPrimeDualPack",
+    "name": "Nezha 和 Octavia Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Nezha Prime、Octavia Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVMesaLimboPrimeDualPack",
+    "name": "Mesa 和 Limbo Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Mesa Prime、Limbo Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVHarrowNekrosPrimeDualPack",
+    "name": "Harrow 和 Nekros Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Harrow Prime、Nekros Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVZephyrChromaPrimeDualPack",
+    "name": "Zephyr 和 Chroma Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Zephyr Prime、Chroma Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVFrostMagPrimeDualPack",
+    "name": "Frost 和 Mag Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Frost Prime、Mag Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVMagRhinoPrimeDualPack",
+    "name": "Mag 和 Rhino Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Mag Prime、Rhino Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVAtlasVaubanPrimeDualPack",
+    "name": "Atlas 和 Vauban Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Atlas Prime、Vauban Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVVoltLokiPrimeDualPack",
+    "name": "Volt 和 Loki Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Volt Prime、Loki Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVValkyrSarynPrimeDualPack",
+    "name": "Valkyr 和 Saryn Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Valkyr Prime、Saryn Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/HeirloomPackValkyr",
+    "name": "Valkyr 传家宝组合包",
+    "description": "Valkyr 的崛起威风凛凛，在 Valkyr 传家宝组合包中摆脱了她苦难的过往。传家宝外观象征着时间的流逝和 Tenno 的付出。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/Tattoo/TattooBundleDuviri",
+    "name": "悖论面部纹身墨水组合包",
+    "description": "《双行王境故事集》中的故事在这些设计中得到了体现。悖论面部纹身墨水组合包内含神射手、猛力重击者、宝石和存在面部纹身墨水。*面部纹身墨水只适用于漂泊者。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/VaubanDeluxeSkinBundle",
+    "name": "VAUBAN 城塞组合包",
+    "description": "用这个灵巧的战士增援盟友。包含Vauban城塞外观，莫迪尔巨刃外观和侯爵坠饰。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/2025Bundles/OraxiaSupporterPack",
+    "name": "ORAXIA 组合包",
+    "description": "通过全新的Oraxia组合包，在双行王境的漂浮岛屿上追踪你的猎物！内含致命猎手Oraxia，以及她的标志性武器和自定义装饰。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVEquinoxPrimeSinglePack",
+    "name": "Equinox Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Equinox Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVWukongPrimeSinglePack",
+    "name": "Wukong Prime 组合包",
+    "description": "Prime 先锋部队集结！你可以在限定时间内购买这个组合包，来立即获取 Wukong Prime，还有更多精彩物品！物品自带槽位、Orokin 催化剂，以及 Orokin 反应堆。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVWukongPrimeKubrowArmor",
+    "name": "三藏 Prime 库伯组合包",
+    "description": "古老的Orokin护甲给最忠诚也最受宠爱的库拍看守者。内含三藏Prime库拍护甲、色彩和花纹，还有基因拼接一只库拍所需要用到的一切。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/StoreItems/Packages/MegaPrimeVault/MPVNarvarrPrimeArmorSet",
+    "name": "纳瓦尔 Prime 护甲套装",
+    "description": "大胆，粗犷，坚定。夜晚而立，面朝黎明。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/Recipes/Components/FormaBlueprint",
+    "name": "Forma 蓝图",
+    "description": "这个非固定形态的零件是Orokin时代建筑中不可或缺的。可以改变战甲、同伴或武器的极性槽，并将等级重置为无等级。只能用于满级的战甲、同伴及武器。"
+  }
+]
