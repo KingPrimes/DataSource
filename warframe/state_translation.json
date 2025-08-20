@@ -223,5 +223,20 @@
     "uniqueName": "/Lotus/Types/Recipes/Components/FormaBlueprint",
     "name": "Forma 蓝图",
     "description": "这个非固定形态的零件是Orokin时代建筑中不可或缺的。可以改变战甲、同伴或武器的极性槽，并将等级重置为无等级。只能用于满级的战甲、同伴及武器。"
+  },
+  {
+    "uniqueName": "/Lotus/Language/G1Quests/HeatFissuresEventScore",
+    "name": "热美亚裂缝",
+    "description": "热美亚裂缝正在撕裂金星地表，这是奈富·安尤贪得无厌的后果。为了快速获取收益，他不惜一切代价，包括把整个奥布山谷置于危险之中。封闭遍布奥布山谷的裂缝，以稳定该地区。"
+  },
+  {
+    "uniqueName": "/Lotus/Language/Isleweaver/DuviriMurmurEventScore",
+    "name": "《行动代号：八爪》",
+    "description": "士魂大帝陛下的谕令致化名为“漂泊者”的昔日叛徒和阴谋家：双行王境处境危急。在你进行那些无聊的冒险时，失落的儒临地卷土重来，带来了学者提到过的虚空威胁。那个女恶魔算夺了我们的王位。必须阻止她。我在扎里曼号上等你来参加一场紧急会议。"
+  },
+  {
+    "uniqueName": "/Lotus/Types/Keys/TacAlertKeyWaterFightA",
+    "name": "三伏天",
+    "description": "Kela De Thaym 向你发出挑战，邀请你参加一场十分特别的死亡角斗场……一场水战！？！这里没有杀戮，只是会被淋湿。娜卡已经准备好用丰富的奖励来你换取收集到的珍珠。"
   }
 ]

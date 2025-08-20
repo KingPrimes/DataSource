@@ -694,5 +694,53 @@
     "factionIndex": 1,
     "minEnemyLevel": 6,
     "maxEnemyLevel": 8
+  },
+  {
+    "uniqueName": "EventNode25",
+    "name": "三伏天",
+    "systemIndex": 0,
+    "systemName": "地球",
+    "nodeType": 0,
+    "masteryReq": 0,
+    "missionIndex": 22,
+    "factionIndex": 0,
+    "minEnemyLevel": 15,
+    "maxEnemyLevel": 20
+  },
+  {
+    "uniqueName": "EventNode24",
+    "name": "三伏天 - 任务 2",
+    "systemIndex": 0,
+    "systemName": "地球",
+    "nodeType": 0,
+    "masteryReq": 0,
+    "missionIndex": 22,
+    "factionIndex": 0,
+    "minEnemyLevel": 20,
+    "maxEnemyLevel": 35
+  },
+  {
+    "uniqueName": "EventNode34",
+    "name": "三伏天 - 任务 3",
+    "systemIndex": 0,
+    "systemName": "地球",
+    "nodeType": 0,
+    "masteryReq": 0,
+    "missionIndex": 22,
+    "factionIndex": 0,
+    "minEnemyLevel": 25,
+    "maxEnemyLevel": 40
+  },
+  {
+    "uniqueName": "EventNode35",
+    "name": "三伏天 - 任务 4",
+    "systemIndex": 0,
+    "systemName": "地球",
+    "nodeType": 0,
+    "masteryReq": 0,
+    "missionIndex": 22,
+    "factionIndex": 0,
+    "minEnemyLevel": 30,
+    "maxEnemyLevel": 50
   }
 ]
