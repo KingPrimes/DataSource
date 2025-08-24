@@ -1,0 +1,12 @@
+.COMMON{
+    color: #bd9177;
+}
+.UNCOMMON{
+    color: #d1d0d1;
+}
+.RARE{
+    color: #ece175;
+}
+.LEGENDARY{
+    color: #6f37c5;
+}
