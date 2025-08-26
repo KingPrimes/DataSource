@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>入侵</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
     <style>
         hr {
             margin: 2px;
@@ -14,8 +14,29 @@
             background-color: #122028;
         }
 
+        ul {
+            list-style-type: none;
+        }
+
+
+        .task {
+            text-align: left;
+            font-size: 24px;
+        }
+
         .content table {
             width: 100%;
+        }
+
+        .content {
+            border: 2px solid #fff;
+            margin: 15px;
+            background-color: #122028;
+        }
+
+        .head-fissues {
+            text-align: center;
+            font-size: 24px;
         }
 
         h2 {
@@ -81,52 +102,50 @@
             <table>
                 <tr>
                     <!-- 派系图标 -->
-                    <td><img th:src="@{'/img/faction/'+${t.attacker.faction}+'.png'}"/></td>
+                    <td><img th:src="@{'/img/faction/'+${t.getFactionName()}+'.png'}"/></td>
                     <td style="text-align: left;">
                         <ul>
                             <!-- 任务地点 -->
                             <li>
                                 <span class="task" th:text="${t.node} "></span>
-                                <span class="task" style="color: aquamarine;" th:text="'('+ ${t.desc} +')'"></span>
                             </li>
                             <!-- 进度条 -->
                             <li>
                                 <table class="progress">
                                     <tr>
-                                        <td th:width="${t.completion}+'%'"></td>
-                                        <td th:width="100 - ${t.completion}+'%'"></td>
+                                        <td th:width="${t.getCompletion()}+'%'"></td>
+                                        <td th:width="100 - ${t.getCompletion()}+'%'"></td>
                                     </tr>
                                 </table>
                             </li>
                         </ul>
                     </td>
                     <!-- 派系图标 -->
-                    <td><img th:src="@{'/img/faction/'+${t.defender.faction}+'.png'}"/></td>
+                    <td><img th:src="@{'/img/faction/'+${t.getDefenderFactionName()}+'.png'}"/></td>
                 </tr>
 
                 <!-- 进度与奖励 -->
                 <tr>
-                    <td th:text="${t.attacker.faction}+' '+${t.completion}+'%'"></td>
+                    <td th:text="${t.DefenderFaction}+' '+${t.getCompletion()}+'%'"></td>
                     <td>
-                        <!-- 奖励 -->
+                        奖励
                         <table class="invasionsReward">
                             <tr>
                                 <!-- 攻方奖励 -->
                                 <!--th:style="'color: #'+${t.attacker.reward.colo}"-->
-                                <td th:if="${!t.vsInfestation}"
-                                    th:text="${!t.attacker.reward.countedItems.isEmpty()}?${t.attacker.reward.countedItems[0].count}+'X '+${t.attacker.reward.countedItems[0].type}:'-'"
+                                <td th:text="${!t.attackerReward?.empty ? t.attackerReward[0].countedItems[0].count+'X '+t.attackerReward[0].countedItems[0].name : '-'}"
                                     class="rewardItem">-
                                 </td>
                                 <td></td>
                                 <!-- 防方奖励 -->
                                 <!--th:style="'color: #'+${t.defender.reward.colo}"-->
-                                <td th:text="${!t.defender.reward.countedItems.isEmpty()}?${t.defender.reward.countedItems[0].count}+'X '+${t.defender.reward.countedItems[0].type}:'-'"
+                                <td th:text="${t.defenderReward !=null ? t.defenderReward.countedItems[0].count+'X '+t.defenderReward.countedItems[0].name : '-'}"
                                     class="rewardItem">-
                                 </td>
                             </tr>
                         </table>
                     </td>
-                    <td th:text="100 - ${t.completion}+'% '+${t.defender.faction} "></td>
+                    <td th:text="100 - ${t.getCompletion()}+'% '+${t.defenderMissionInfo.faction} "></td>
                 </tr>
             </table>
         </div>

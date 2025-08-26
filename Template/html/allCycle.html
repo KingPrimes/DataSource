@@ -113,23 +113,23 @@
                         <td>扎里曼</td>
                     </tr>
                     <tr>
-                        <td th:text="${earth.isDay} ? '白天' : '夜晚'"
+                        <td th:text="${earth.state}"
                             th:classappend="${earth.isDay} ? 'warm' : 'cold'"></td>
-                        <td th:text="${cetus.isDay} ? '白天' : '夜晚'"
+                        <td th:text="${cetus.state}"
                             th:classappend="${cetus.isDay} ? 'warm' : 'cold'"></td>
-                        <td th:text="${vallis.isWarm}? '温暖' : '寒冷'"
+                        <td th:text="${vallis.state}"
                             th:classappend="${vallis.isWarm} ? 'warm' : 'cold'"></td>
-                        <td th:text="${cambion.dump}"
-                            th:classappend="${cambion.dump} == 'FASS'? 'warm' : 'cold'"></td>
-                        <td th:text="${zariman.isCorpus} ? 'CORPUS' : ${zariman.state}"
+                        <td th:text="${cambion.active}"
+                            th:classappend="${cambion.active} == 'FASS'? 'warm' : 'cold'"></td>
+                        <td th:text="${zariman.state}"
                             th:classappend="${zariman.isCorpus} ? 'cold' : 'warm'"></td>
                     </tr>
                     <tr>
                         <td><img th:src="${earth.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
                         <td><img th:src="${cetus.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
                         <td><img th:src="${vallis.isWarm} ? @{/img/day.png} : @{/img/cold.png}"/></td>
-                        <td><img th:if="${cambion.dump} == FASS" th:src="@{/img/day.png}"/>
-                            <img th:if="${cambion.dump} != FASS" th:src="@{/img/night.png}"/>
+                        <td><img th:if="${cambion.active} == FASS" th:src="@{/img/day.png}"/>
+                            <img th:if="${cambion.active} != FASS" th:src="@{/img/night.png}"/>
                         </td>
                         <td></td>
                     </tr>

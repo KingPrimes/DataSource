@@ -100,16 +100,20 @@
     <tr>
         <td>
             <ul class="container">
-                <li th:each="n : ${normal}">
-                    <img th:src="|img/tenno/${#strings.toLowerCase(n)}.png|" alt=""/>
-                    <p><span th:text="${n}"></span></p>
+                <li th:each="choice : ${duiri.choices}" th:if="${choice.category.name() == 'EXC_NORMAL'}">
+                    <div th:each="n:${choice.choices}">
+                        <img th:src="|img/tenno/${#strings.toLowerCase(n)}.png|" alt=""/>
+                        <p><span th:text="${n}"></span></p>
+                    </div>
                 </li>
             </ul>
         </td>
         <td>
             <ul class="container hard">
-                <li th:each="h : ${hard}">
-                    <span th:text="${h}">----</span>
+                <li th:each="choice : ${duiri.choices}" th:if="${choice.category.name() == 'EXC_HARD'}">
+                    <div th:each="n:${choice.choices}">
+                        <p><span th:text="${n}"></span></p>
+                    </div>
                 </li>
             </ul>
         </td>

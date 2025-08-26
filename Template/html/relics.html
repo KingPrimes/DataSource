@@ -1,35 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8"/>
 	<title>遗物</title>
 	<link th:href="@{/css/index.css}" rel="stylesheet"/>
+	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+	<link th:href="@{/css/rarityType.css}" rel="stylesheet"/>
 </head>
 
 <body>
-<!--
-生成图片的宽度
--->
-<w>
-	3072
-</w>
+<!-- 生成图片的宽度 -->
+<w>3072</w>
 <div>
 	<div class="card">
 		<div class="relics-backcolor">
-			<div th:if="${rs} != '0'">
+			<div th:if="${relics != null and not relics.isEmpty()}">
 				<table class="table-css syndicate relics-color"
-					   th:with="colSize=${4}, rowSize=${rs.size()/colSize}, rowSize=${(rs.size()%colSize==0 ? rowSize : (rowSize+1))}">
-					<tr th:each="rowIdx:${#numbers.sequence(0, rowSize-1)}">
-						<td th:each="colIdx:${#numbers.sequence(0, colSize-1)}"
+					   th:with="colSize=4,
+							   rowSize=${relics.size()/colSize},
+							   rowSize=${(relics.size()%colSize==0 ? rowSize : rowSize+1)}">
+					<tr th:each="rowIdx: ${#numbers.sequence(0, rowSize-1)}">
+						<td th:each="colIdx: ${#numbers.sequence(0, colSize-1)}"
 							th:with="idx=${rowIdx * colSize + colIdx}">
-							<th:block th:if="${idx lt rs.size()}">
-								<table class="relics">
-									<caption about="top" th:style="${rs[idx].tier} == '后纪' ? 'color: #ece175;' : (${rs[idx].tier} == '中纪' ? 'color: #d1d0d1;' : (${rs[idx].tier} == '古纪' ? 'color: #bd9177;' : (${rs[idx].tier} == '前纪' ? 'color: #A49C75;' : 'color: #811111')))"
-											 th:text="'['+${rs[idx].tier}+' '+${rs[idx].relicName}+' 遗物]'"></caption>
-									<tr th:each="reward:${rs[idx].rewards}">
-										<td th:style="${reward.chance} == 2 ? 'background-color: #ece175;' : (${reward.chance} == 11 ? 'background-color: #d1d0d1;' : (${reward.chance} == 25 ? 'background-color: #bd9177;' : ''))"
-											th:text="${reward.itemName} + ' (' + ${reward.rarity} + ', ' + ${reward.chance} + '%)'"></td>
+							<th:block th:if="${idx lt relics.size()}">
+								<table class="relics" th:object="${relics[idx]}">
+									<caption about="top"
+											 th:text=" '[' +  *{name} + ']'">
+									</caption>
+									<tr th:each="reward: *{relicRewards}">
+										<td th:class="${reward.rarity.name()}"
+											th:text="${reward.rewardName} + ' (' + ${reward.rarity.name} + ')'">
+										</td>
 									</tr>
 								</table>
 							</th:block>
@@ -37,12 +39,12 @@
 					</tr>
 				</table>
 			</div>
+			<div th:if="${relics == null or relics.isEmpty()}" class="no-data">
+				没有找到相关遗物数据
+			</div>
 		</div>
 	</div>
-
 </div>
 
-
 </body>
-
 </html>

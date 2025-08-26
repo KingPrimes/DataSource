@@ -133,34 +133,29 @@
 			<table>
 				<tr>
 					<td><img
-							th:src="@{'/img/'+${f.tierNum == 1 ? 'lith' :
-                            (f.tierNum == 2 ? 'meso' :
-                            (f.tierNum == 3 ? 'neo' :
-                            (f.tierNum == 4 ? 'relics/axi' :
-                            (f.tierNum == 5 ? 'relics/Lich':
+							th:src="@{'/img/'+${f.getVoidEnum().name() == 'VoidT1' ? 'lith' :
+                            (f.getVoidEnum().name() == 'VoidT2' ? 'meso' :
+                            (f.getVoidEnum().name() == 'VoidT3' ? 'neo' :
+                            (f.getVoidEnum().name() == 'VoidT4' ? 'relics/axi' :
+                            (f.getVoidEnum().name() == 'VoidT5' ? 'relics/Lich':
                             'relics/omnia'))))}+'.png'}"
 							alt=""/></td>
 					<td style="text-align: left;">
 						<ul>
 							<li>
-								<span class="task" th:text="${f.missionType} +'-'+ ${f.enemy}"></span>
+								<span class="task" th:text="${f.getMissionType()} +'-'+ ${f.nodes.getFactionName().getName()}"></span>
 							</li>
 							<li>
                                 <span class="fissues-type"
-									  th:text="${f.tierNum == 1 ? '古纪 裂隙' :
-                                      (f.tierNum == 2 ? '前纪 裂隙' :
-                                      (f.tierNum == 3 ? '中纪 裂隙' :
-                                      (f.tierNum == 4 ? '后纪 裂隙' :
-                                      (f.tierNum == 5 ? '安魂 裂隙':
-                                      '全能 裂隙' ))))}"></span>
+									  th:text="${f.getVoidEnum().getName()}+ ' 裂隙'"></span>
 							</li>
 							<li th:text="${f.node}">
 
 							</li>
-							<li th:text="${f.eta}"></li>
+							<li th:text="${f.getTimeLeft()}"></li>
 						</ul>
 					</td>
-					<td><img th:src="@{'/img/faction/'+ ${f.enemy == 'The Murmur'? 'The-Murmur' : f.enemy} +'.png'}" alt=""/></td>
+					<td><img th:src="@{'/img/faction/'+ ${f.nodes.getFactionName().name()} +'.png'}" alt=""/></td>
 				</tr>
 			</table>
 		</div>

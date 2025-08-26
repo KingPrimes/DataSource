@@ -77,25 +77,25 @@
 </head>
 <body>
 <w>1580</w>
-<div class="contents">
+<div class="contents" th:each="ass : ${assault}">
 	<table class="head">
 		<tr>
 			<td>突击</td>
-			<td th:text="${assault.eta}"></td>
+			<td th:text="${ass.getTimeLeft()}"></td>
 		</tr>
 	</table>
 
 	<hr />
 
-	<table th:each="item : ${assault.variants}" class="mission-table">
+	<table th:each="item : ${ass.variants}" class="mission-table">
 		<tr>
-			<td class="mission-type" th:text="${item.missionType}"></td>
+			<td class="mission-type" th:text="${item.getMissionType()}"></td>
 		</tr>
 		<tr>
 			<td class="mission-node" th:text="${item.node}"></td>
 		</tr>
 		<tr>
-			<td class="mission-modifier" th:text="'状态: ' + ${item.modifier}"></td>
+			<td class="mission-modifier" th:text="'状态: ' + ${item.getModifierType()}"></td>
 		</tr>
 	</table>
 </div>

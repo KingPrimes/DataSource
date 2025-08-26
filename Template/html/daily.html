@@ -21,7 +21,7 @@
             padding: 25px;
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -63,36 +63,36 @@
 </head>
 <body>
 <w>1290</w>
-<div class="card">
+<div class="card" th:each="d:${deals}">
     <h1>每日特惠</h1>
     <table>
         <tr>
             <td>物品名称：</td>
-            <td th:text="${deals.item}"></td>
+            <td th:text="${d.item}"></td>
         </tr>
         <tr>
             <td>原价/现价：</td>
             <td>
-                <span th:text="${deals.originalPrice}" style="text-decoration: line-through;"></span>
+                <span th:text="${d.originalPrice}" style="text-decoration: line-through;"></span>
                 <span> / </span>
-                <span th:text="${deals.salePrice}" style="color: #4CAF50;"></span>
+                <span th:text="${d.salePrice}" style="color: #4CAF50;"></span>
             </td>
         </tr>
         <tr>
             <td>折扣比：</td>
-            <td class="discount" th:text="${deals.discount} + ' %'"></td>
+            <td class="discount" th:text="${d.count} + ' %'"></td>
         </tr>
         <tr>
             <td>总/余：</td>
             <td>
-                <span th:text="${deals.total}"></span>
+                <span th:text="${d.total}"></span>
                 <span> / </span>
-                <span class="remaining" th:text="${deals.total} == ${deals.sold} ? '0' : ${deals.sold}"></span>
+                <span class="remaining" th:text="${d.total} == ${d.sold} ? '0' : ${d.sold}"></span>
             </td>
         </tr>
         <tr>
             <td>剩余时间：</td>
-            <td th:text="${deals.eta}"></td>
+            <td th:text="${d.getTimeLeft()}"></td>
         </tr>
     </table>
 </div>

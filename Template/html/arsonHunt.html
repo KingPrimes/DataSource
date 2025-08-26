@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8" />
-		<link th:href="@{/css/index.css}" rel="stylesheet" />
-		<title>执刑官猎杀</title>
-		<style>
-			.assault {
-				text-align: left;
-				font-size: 18px;
-			}
+<head>
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+	<title>执刑官猎杀</title>
+	<style>
+		.assault {
+			text-align: left;
+			font-size: 18px;
+		}
 
-			.time {
-				text-align: right;
-				font-size: 18px;
-			}
+		.time {
+			text-align: right;
+			font-size: 18px;
+		}
 
-			table {
-				width: 100%;
-				text-align: left;
-			}
+		table {
+			width: 100%;
+			text-align: left;
+		}
 
-			body {
-				color: #fff;
-				background-color: #283B47;
-			}
+		body {
+			color: #fff;
+			background-color: #283B47;
+		}
 
-			.head {
-				width: 100%;
-				table-layout: fixed;
-			}
+		.head {
+			width: 100%;
+			table-layout: fixed;
+		}
 
-			.contents {
-				border-bottom: 2px solid;
+		.contents {
+			border-bottom: 2px solid;
 
-				margin: 15px;
-				background-color: #2C414E;
-			}
-		</style>
-	</head>
-	<body>
-		<w>
-			1580
-		</w>
-		<div class="contents">
-			<table class="head">
-				<tr>
-					<td style="text-align: left; font-size: 24px;color: #4EC0FB">
-						执刑官猎杀
-					</td>
-					<td th:text="${arsonHunt.eta}" style="text-align: right;font-size: 20px;color: #4EC0FB">
+			margin: 15px;
+			background-color: #2C414E;
+		}
+	</style>
+</head>
+<body>
+<w>
+	1580
+</w>
+<div class="contents" th:each="ah:${arsonHunt}">
+	<table class="head">
+		<tr>
+			<td style="text-align: left; font-size: 24px;color: #4EC0FB">
+				执刑官猎杀
+			</td>
+			<td th:text="${ah.getTimeLeft()}" style="text-align: right;font-size: 20px;color: #4EC0FB"></td>
+		</tr>
+	</table>
 
-					</td>
-				</tr>
-			</table>
-
-			<hr />
-			<table th:each="item:${arsonHunt.missions}">
-				<tr>
-					<td th:text="'执刑官猎杀: '+${item.type}" style="font-size: 24px;color: #FA8B9D;"></td>
-				</tr>
-				<tr>
-					<td th:text="${item.node}" style="color: #6E86ED;"></td>
-				</tr>
-			</table>
-		</div>
-	</body>
+	<hr />
+	<table th:each="item:${ah.missions}">
+		<tr>
+			<td th:text="'执刑官猎杀: '+${item.getMissionType()}" style="font-size: 24px;color: #FA8B9D;"></td>
+		</tr>
+		<tr>
+			<td th:text="${item.node}" style="color: #6E86ED;"></td>
+		</tr>
+	</table>
+</div>
+</body>
 </html>
