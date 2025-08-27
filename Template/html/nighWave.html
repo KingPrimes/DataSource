@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8"/>
-	<title>电波</title>
-	<link th:href="@{/css/index.css}" rel="stylesheet"/>
-	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <title>电波</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
 </head>
 <body>
 <!--
        生成图片的宽度
     -->
 <w>
-	1350
+    1350
 </w>
 <div>
-	<div class="card">
-		<div class="card-layer">
-			<div class="nighTwave">
-				<h1>电波</h1>
-				<div th:text="'当前周期：'+${nigh.season}"></div>
-				<div th:text="'预计周期结束日期：'+${nigh.expiry.getTime()}"></div>
-				<h3>---每日挑战---</h3>
-				<div th:each="n:${nigh.activeChallenges}">
-					<p class="day" th:if="${n.nightwave.isDailyTasks()}" th:text="${n.nightwave.description}"></p>
-				</div>
-				<h3>---每周挑战---</h3>
-				<div th:each="n:${nigh.activeChallenges}">
-					<p class="week" th:if="${n.nightwave.isWeeklyTasks()}" th:text="${n.nightwave.description}"></p>
-				</div>
-				<h3>---精英挑战---</h3>
-				<div th:each="n:${nigh.activeChallenges}">
-					<p class="week" th:if="${n.nightwave.isEliteMissions()}" th:text="${n.nightwave.description}"></p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-layer">
+            <div class="nighTwave">
+                <h1>电波</h1>
+                <div th:text="'当前周期：'+${nigh.season}"></div>
+                <div th:text="'预计周期结束日期：'+${nigh.expiry.getTime()}"></div>
+                <h3>---每日挑战---</h3>
+                <div th:each="n:${nigh.activeChallenges}">
+                    <p class="day" th:if="${n.nightwave?.isDailyTasks()}" th:text="${n.nightwave?.description}"></p>
+                </div>
+                <h3>---每周挑战---</h3>
+                <div th:each="n:${nigh.activeChallenges}">
+                    <p class="week" th:if="${n.nightwave?.isWeeklyTasks()}" th:text="${n.nightwave?.description}"></p>
+                </div>
+                <h3>---精英挑战---</h3>
+                <div th:each="n:${nigh.activeChallenges}">
+                    <p class="week" th:if="${n.nightwave?.isEliteMissions()}" th:text="${n.nightwave?.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

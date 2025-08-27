@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<link th:href="@{/css/index.css}" rel="stylesheet" />
+	<meta charset="UTF-8"/>
+	<link th:href="@{/css/index.css}" rel="stylesheet"/>
 	<title>奸商</title>
 </head>
 
@@ -17,10 +17,10 @@
 <div>
 	<div class="card">
 		<div class="card-layer">
-			<div>
+			<div th:each="v:${vo}">
 				<h1>奸商</h1>
 				<hr/>
-				<table th:if="${vo.active}"  class="voidTrader">
+				<table th:if="${not #lists.isEmpty(v.manifest)}" class="voidTrader">
 					<thead>
 					<tr>
 						<th>物品名称</th>
@@ -29,22 +29,22 @@
 					</tr>
 					</thead>
 					<tbody>
-					<tr th:each="item:${vo.inventory}">
-						<td th:text="${item.item}"></td>
-						<td th:text="${item.credits}+'k'"></td>
-						<td th:text="${item.ducats}"></td>
+					<tr th:each="m:${v.manifest}">
+						<td th:text="${m.item}"></td>
+						<td th:text="${m.regularPrice}+'k'"></td>
+						<td th:text="${m.primePrice}"></td>
 					</tr>
 					</tbody>
 				</table>
 				<table class="voidTraderOut">
-					<caption align="top" th:if="${vo.active}">---------------------------------</caption>
+					<caption align="top" th:if="${not #lists.isEmpty(v.manifest)}">---------------------------------</caption>
 					<tr>
 						<td>虚空商人所在地：</td>
-						<td th:text="${vo.location}"></td>
+						<td th:text="${v.node}"></td>
 					</tr>
 					<tr>
-						<td th:text="${!vo.active} ? '虚空商人 到来:' : '虚空商人 离去:'"></td>
-						<td th:text="${!vo.active} ? ${vo.startString}:${vo.endString}"></td>
+						<td th:text="${#lists.isEmpty(v.manifest)} ? '虚空商人 到来:' : '虚空商人 离去:'"></td>
+						<td th:text="${not #lists.isEmpty(v.manifest)} ? ${v.activation.getTime()}:${v.expiry.getTime()}"></td>
 					</tr>
 				</table>
 			</div>
