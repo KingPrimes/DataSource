@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>虚空裂隙</title>
-	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+	<link th:href="@{css/fonts.css}" rel="stylesheet"/>
 	<style>
 		body {
 			color: #e1e7ec;
@@ -133,7 +133,7 @@
 			<table>
 				<tr>
 					<td><img
-							th:src="@{'/img/'+${f.getVoidEnum().name() == 'VoidT1' ? 'lith' :
+							th:src="@{'img/'+${f.getVoidEnum().name() == 'VoidT1' ? 'lith' :
                             (f.getVoidEnum().name() == 'VoidT2' ? 'meso' :
                             (f.getVoidEnum().name() == 'VoidT3' ? 'neo' :
                             (f.getVoidEnum().name() == 'VoidT4' ? 'relics/axi' :
@@ -155,7 +155,7 @@
 							<li th:text="${f.getTimeLeft()}"></li>
 						</ul>
 					</td>
-					<td><img th:src="@{'/img/faction/'+ ${f.nodes.getFactionName().name()} +'.png'}" alt=""/></td>
+					<td><img th:src="@{'img/faction/'+ ${f.nodes.getFactionName().name()} +'.png'}" alt=""/></td>
 				</tr>
 			</table>
 		</div>

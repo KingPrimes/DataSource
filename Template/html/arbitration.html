@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>仲裁</title>
-	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+	<link th:href="@{css/fonts.css}" rel="stylesheet"/>
 	<style>
 		body {
 			background-color: #1A2332;
@@ -108,7 +108,7 @@
 					<li class="mission-etc" th:text="${arbit.etc}"></li>
 				</ul>
 			</td>
-			<td style="width: 20%;"><img th:src="@{'/img/faction/' + ${arbit.enemy} + '.png'}" alt="阵营图标"/></td>
+			<td style="width: 20%;"><img th:src="@{'img/faction/' + ${arbit.enemy} + '.png'}" alt="阵营图标"/></td>
 		</tr>
 	</table>
 </div>

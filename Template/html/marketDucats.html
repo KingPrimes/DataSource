@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>金银垃圾</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet" href="../css/index.css"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
     <style>
         .day table{
             background-color: #f1afaf;
         }
 
-       .hour table{
+        .hour table{
             background-color: #aaeeb4;
-       }
+        }
 
     </style>
 </head>
@@ -20,7 +20,7 @@
        生成图片的宽度
     -->
 <w>
-   3000
+    1650
 </w>
 <div class="card">
     <div class="card-layer">
@@ -38,22 +38,22 @@
                     <td th:each="t:${data}" th:if="${t.key == 'day'}" class="day">
                         <table>
                             <thead>
-                                <tr>
-                                    <th>名称</th>
-                                    <th>杜卡币</th>
-                                    <th>?币/白金</th>
-                                    <th>成交均价</th>
-                                    <th>库存</th>
-                                </tr>
+                            <tr>
+                                <th>名称</th>
+                                <th>杜卡币</th>
+                                <th>?币/白金</th>
+                                <th>成交均价</th>
+                                <th>库存</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="d:${t.value}">
-                                    <td th:text="${d.item}"></td>
-                                    <td th:text="${d.ducats}"></td>
-                                    <td th:text="${d.ducatsPerPlatinumWa}"></td>
-                                    <td th:text="${d.waPrice}"></td>
-                                    <td th:text="${d.volume}"></td>
-                                </tr>
+                            <tr th:each="d:${t.value}">
+                                <td th:text="${d.item}"></td>
+                                <td th:text="${d.ducats}"></td>
+                                <td th:text="${d.ducatsPerPlatinumWa}"></td>
+                                <td th:text="${d.waPrice}"></td>
+                                <td th:text="${d.volume}"></td>
+                            </tr>
                             </tbody>
                         </table>
                     </td>

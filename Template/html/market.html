@@ -1,134 +1,134 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8"/>
-        <link th:href="@{/css/market.css}" rel="stylesheet"/>
-        <title>Warframe.Market</title>
-    </head>
+<head>
+    <meta charset="UTF-8"/>
+    <link th:href="@{css/market.css}" rel="stylesheet"/>
+    <title>Warframe.Market</title>
+</head>
 
-    <body>
-        <w>
-            4500
-        </w>
-        <div>
-            <div class="content__header--transparent--lrTCI">
-                <table class="header" style="border-collapse: collapse;">
-                    <caption>
-                        <h1 th:text="${itemName}">item-name</h1>
-                    </caption>
-                    <tbody>
-                        <tr>
-                            <td>平台</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>精通段位</td>
-                            <td>杜卡币</td>
-                            <td>稀有度</td>
-                            <td>交易税</td>
-                        </tr>
-                        <tr>
-                            <td th:text="${form}">SWITCH</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td th:text="${level}">0</td>
-                            <td>
-                                <img alt="" th:src="@{/img/Ducats.png}" style="width: 15%;"/>
-                                <span th:text="${ducats}">225</span>
-                            </td>
-                            <td></td>
-                            <td>
-                                <img alt="" th:src="@{/img/Credits.png}" style="width: 15%;"/>
-                                <span th:text="${credits}">8000</span>
-                            </td>
-                        </tr>
+<body>
+<w>
+    4500
+</w>
+<div>
+    <div class="content__header--transparent--lrTCI">
+        <table class="header" style="border-collapse: collapse;">
+            <caption>
+                <h1 th:text="${itemName}">item-name</h1>
+            </caption>
+            <tbody>
+            <tr>
+                <td>平台</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>精通段位</td>
+                <td>杜卡币</td>
+                <td>稀有度</td>
+                <td>交易税</td>
+            </tr>
+            <tr>
+                <td th:text="${form}">SWITCH</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td th:text="${level}">0</td>
+                <td>
+                    <img alt="" th:src="@{img/Ducats.png}" style="width: 15%;"/>
+                    <span th:text="${ducats}">225</span>
+                </td>
+                <td></td>
+                <td>
+                    <img alt="" th:src="@{img/Credits.png}" style="width: 15%;"/>
+                    <span th:text="${credits}">8000</span>
+                </td>
+            </tr>
 
-                    </tbody>
-                </table>
-            </div>
-            <hr/>
-            <div>
-                <table class="header">
-                    <tr>
-                        <td style="text-align: initial;">
-                            订单种类
-                        </td>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+    <div>
+        <table class="header">
+            <tr>
+                <td style="text-align: initial;">
+                    订单种类
+                </td>
 
-                        <td style="text-align: initial;">
-                            上线状态
-                        </td>
+                <td style="text-align: initial;">
+                    上线状态
+                </td>
 
-                        <td style="text-align: initial;">
-                            Mod等级
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul class="nav" style="width: 200px;">
-                                <li th:class="${isBy == false ? 'actv_li' : 'nav_li'}">卖家</li>
-                                <li th:class="${isBy ? 'actv_li' : 'nav_li'}">买家</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="nav" style="width: 300px;">
-                                <li class="nav_li">全部</li>
-                                <li class="actv_li">在线</li>
-                                <li class="nav_li">离线</li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="nav" style="width: 200px;">
-                                <li th:class="${isMax == false ?'actv_li' : 'nav_li'}">全部</li>
-                                <li th:class="${isMax ? 'actv_li' : 'nav_li'}">满级</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <hr/>
-            <div class="tableList">
-                <table class="header tbodys">
-                    <thead>
-                        <tr>
-                            <th>购买/贩卖</th>
-                            <th>玩家名称</th>
-                            <th>在线状态</th>
-                            <th>声誉</th>
-                            <th>单价</th>
-                            <th>数量</th>
-                            <th>等级</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="o:${orders}">
-                            <td class="sell" th:text="${isBy? '买' : '卖'}">卖</td>
-                            <td style="text-align: left">
-                                <div class="avatr-image"><img th:src="@{/img/market/default-avatar.png}"/></div>
-                                <div class="avatr-name"><span th:text="${o.user.ingameName}">xinxing25461fawef664646</span></div>
-                            </td>
-                            <td class="ingame--OWe2B">在线</td>
-                            <td class="order-row__user-reputation--lGJbY">
-                                <span style="color: #00a96c;" th:text="${o.user.reputation}">10</span>
-                                <img th:src="@{/img/market/icon-smile.png}"/>
-                            </td>
-                            <td class="price">
-                                <span th:text="${o.platinum}">65</span>
-                                <img th:src="@{/img/market/icon-platinum.png}"/>
-                            </td>
-                            <td class="quantity"><span th:text="${o.quantity}">1</span><img th:src="@{/img/market/icon-cubes.png}"/></td>
-                            <td th:text="${o.modRank}">0</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <td style="text-align: initial;">
+                    Mod等级
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="nav" style="width: 200px;">
+                        <li th:class="${isBy == false ? 'actv_li' : 'nav_li'}">卖家</li>
+                        <li th:class="${isBy ? 'actv_li' : 'nav_li'}">买家</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="nav" style="width: 300px;">
+                        <li class="nav_li">全部</li>
+                        <li class="actv_li">在线</li>
+                        <li class="nav_li">离线</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="nav" style="width: 200px;">
+                        <li th:class="${isMax == false ?'actv_li' : 'nav_li'}">全部</li>
+                        <li th:class="${isMax ? 'actv_li' : 'nav_li'}">满级</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr/>
+    <div class="tableList">
+        <table class="header tbodys">
+            <thead>
+            <tr>
+                <th>购买/贩卖</th>
+                <th>玩家名称</th>
+                <th>在线状态</th>
+                <th>声誉</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>等级</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="o:${orders}">
+                <td class="sell" th:text="${isBy? '买' : '卖'}">卖</td>
+                <td style="text-align: left">
+                    <div class="avatr-image"><img th:src="@{img/market/default-avatar.png}"/></div>
+                    <div class="avatr-name"><span th:text="${o.user.ingameName}">xinxing25461fawef664646</span></div>
+                </td>
+                <td class="ingame--OWe2B">在线</td>
+                <td class="order-row__user-reputation--lGJbY">
+                    <span style="color: #00a96c;" th:text="${o.user.reputation}">10</span>
+                    <img th:src="@{img/market/icon-smile.png}"/>
+                </td>
+                <td class="price">
+                    <span th:text="${o.platinum}">65</span>
+                    <img th:src="@{img/market/icon-platinum.png}"/>
+                </td>
+                <td class="quantity"><span th:text="${o.quantity}">1</span><img th:src="@{img/market/icon-cubes.png}"/></td>
+                <td th:text="${o.modRank}">0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-    </body>
+</body>
 
 </html>

@@ -1,50 +1,80 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8"/>
-	<title>遗物</title>
-	<link th:href="@{/css/index.css}" rel="stylesheet"/>
-	<link th:href="@{/css/fonts.css}" rel="stylesheet"/>
-	<link th:href="@{/css/rarityType.css}" rel="stylesheet"/>
-</head>
+	<link th:href="@{css/index.css}" rel="stylesheet"/>
+	<link th:href="@{css/fonts.css}" rel="stylesheet"/>
+	<title>紫卡分析</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		.weapons_name {
+			color: #CC99CC;
+		}
 
+		.trend_old {
+			color: #FFFFCC;
+		}
+
+		.trend {
+			color: #FFFF66;
+		}
+
+		.weapons_type {
+			color: #CC3366;
+		}
+
+		.attribute {
+			color: #FF9933;
+		}
+
+		html {
+			background-color: #4D3D54;
+		}
+
+		p {
+			color: #CC9966;
+		}
+
+		.diff-high {
+			color: red;
+		}
+
+		.diff-flat {
+			color: green;
+		}
+
+		.diff-low {
+			color: #1c84c6;
+		}
+
+	</style>
+</head>
 <body>
-<!-- 生成图片的宽度 -->
-<w>3072</w>
-<div>
-	<div class="card">
-		<div class="relics-backcolor">
-			<div th:if="${relics != null and not relics.isEmpty()}">
-				<table class="table-css syndicate relics-color"
-					   th:with="colSize=4,
-							   rowSize=${relics.size()/colSize},
-							   rowSize=${(relics.size()%colSize==0 ? rowSize : rowSize+1)}">
-					<tr th:each="rowIdx: ${#numbers.sequence(0, rowSize-1)}">
-						<td th:each="colIdx: ${#numbers.sequence(0, colSize-1)}"
-							th:with="idx=${rowIdx * colSize + colIdx}">
-							<th:block th:if="${idx lt relics.size()}">
-								<table class="relics" th:object="${relics[idx]}">
-									<caption about="top"
-											 th:text=" '[' +  *{name} + ']'">
-									</caption>
-									<tr th:each="reward: *{relicRewards}">
-										<td th:class="${reward.rarity.name()}"
-											th:text="${reward.rewardName} + ' (' + ${reward.rarity.name} + ')'">
-										</td>
-									</tr>
-								</table>
-							</th:block>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div th:if="${relics == null or relics.isEmpty()}" class="no-data">
-				没有找到相关遗物数据
+<w>1500</w>
+<div th:each="r:${data}">
+	<div th:each="tm:${r}">
+		<div>
+			<h3 th:text="${tm.weaponName}"
+				class="weapons_name"></h3>
+			<p>
+				倾向：
+				<span th:text="${tm.newDot + '('+ tm.newNum + ')' }" class="trend"></span>
+			</p>
+			<p>此前版本倾向：<span th:text="${tm.oldDot + '('+ tm.oldNum + ')' }" class="trend_old"></span></p>
+			<p>武器类型：<span th:text="${tm.weaponType}" class="weapons_type"></span></p>
+			<p>具体分析结果：</p>
+			<div th:each="ats:${tm.attributes}">
+				<p class="attribute">
+					<span th:text="${ats.attributeName}"></span>
+					<span th:utext="${'('+ ats.lowAttr + '% - ' + ats.highAttr+ '%) | ' + ats.attrDiff}"
+						  style="color: #CC99CC;"></span>
+				</p>
 			</div>
 		</div>
+		<p>--------------------------------------------------------</p>
 	</div>
 </div>
-
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <title>电波</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
-    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
 </head>
 <body>
 <!--
@@ -22,15 +22,15 @@
                 <div th:text="'预计周期结束日期：'+${nigh.expiry.getTime()}"></div>
                 <h3>---每日挑战---</h3>
                 <div th:each="n:${nigh.activeChallenges}">
-                    <p class="day" th:if="${n.nightwave?.isDailyTasks()}" th:text="${n.nightwave?.description}"></p>
+                    <p class="day" th:if="${n.nightwave.isDailyTasks()}" th:text="${n.nightwave.description}"></p>
                 </div>
                 <h3>---每周挑战---</h3>
                 <div th:each="n:${nigh.activeChallenges}">
-                    <p class="week" th:if="${n.nightwave?.isWeeklyTasks()}" th:text="${n.nightwave?.description}"></p>
+                    <p class="week" th:if="${n.nightwave.isWeeklyTasks()}" th:text="${n.nightwave.description}"></p>
                 </div>
                 <h3>---精英挑战---</h3>
                 <div th:each="n:${nigh.activeChallenges}">
-                    <p class="week" th:if="${n.nightwave?.isEliteMissions()}" th:text="${n.nightwave?.description}"></p>
+                    <p class="week" th:if="${n.nightwave.isEliteMissions()}" th:text="${n.nightwave.description}"></p>
                 </div>
             </div>
         </div>

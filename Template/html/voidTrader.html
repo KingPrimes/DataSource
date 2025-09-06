@@ -3,8 +3,71 @@
 
 <head>
 	<meta charset="UTF-8"/>
-	<link th:href="@{/css/index.css}" rel="stylesheet"/>
+	<link th:href="@{css/index.css}" rel="stylesheet"/>
 	<title>奸商</title>
+	<style>
+		html body{
+			background-color: #ffffff;
+			text-align: center;
+		}
+
+		.voidTrader {
+			margin: 0 auto;
+			text-align: center;
+			border-collapse: collapse;
+			width: 100%;
+			text-indent: 20px;
+		}
+
+		.voidTraderOut {
+			margin: 0 auto;
+			text-align: center;
+			border-collapse: collapse;
+		}
+
+		.voidTraderOut td:nth-child(1) {
+			color: #cf62f0;
+		}
+
+		.voidTraderOut td:nth-child(2) {
+			color: #2da7ee;
+		}
+
+		.voidTrader th {
+			text-align: center;
+			background-color: #CCE8EB;
+			border: 1px solid #cad9ea;
+		}
+
+		.voidTrader tr:nth-child(odd) {
+			background: #fff;
+		}
+
+		.voidTrader td:nth-child(1) {
+			color: #cf62f0;
+		}
+
+		.voidTrader tr:nth-child(even) {
+			background: #F5FAFA;
+		}
+
+		.voidTrader td:nth-child(2) {
+			color: #2da7ee;
+			background-image: url(img/Credits.png);
+			background-repeat: no-repeat;
+			background-position: right;
+			background-size: 20%;
+		}
+
+		.voidTrader td:nth-child(3) {
+			color: #B29C66;
+			background-image: url(img/Ducats.png);
+			background-repeat: no-repeat;
+			background-position: right;
+			background-size: 20%;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -31,7 +94,7 @@
 					<tbody>
 					<tr th:each="m:${v.manifest}">
 						<td th:text="${m.item}"></td>
-						<td th:text="${m.regularPrice}+'k'"></td>
+						<td th:text="${m.regularPrice}"></td>
 						<td th:text="${m.primePrice}"></td>
 					</tr>
 					</tbody>

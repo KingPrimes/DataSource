@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="zh">
 <head>
     <meta charset="utf-8"/>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
     <style>
         hr {
             margin: 2px;
@@ -32,7 +32,7 @@
             <table>
                 <tr>
                     <td><img
-                            th:src="@{'/img/'+${f.tierNum == 1 ? 'lith' :
+                            th:src="@{'img/'+${f.tierNum == 1 ? 'lith' :
                             (f.tierNum == 2 ? 'meso' :
                             (f.tierNum == 3 ? 'neo' :
                             (f.tierNum == 4 ? 'relics/axi' :
@@ -60,7 +60,7 @@
                             <li th:text="${f.eta}"></li>
                         </ul>
                     </td>
-                    <td><img th:src="@{'/img/faction/'+ ${f.enemy == 'The Murmur'? 'The-Murmur' : f.enemy} +'.png'}" alt=""/></td>
+                    <td><img th:src="@{'img/faction/'+ ${f.enemy == 'The Murmur'? 'The-Murmur' : f.enemy} +'.png'}" alt=""/></td>
                 </tr>
             </table>
         </div>

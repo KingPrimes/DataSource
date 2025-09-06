@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Warframe.Market紫卡</title>
-    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
     <style>
         *{
             text-align: left;
@@ -91,9 +91,9 @@
     <table th:if="${not #lists.isEmpty(riven.possibleItems)}" style="width: 100%">
         <caption style="text-align: center">可能的物品：</caption>
         <tbody>
-            <tr th:each="item : ${riven.possibleItems}" style="text-align: center">
-                <td th:text="${item.itemName}" style="text-align: center;color: #4be06a"></td>
-            </tr>
+        <tr th:each="item : ${riven.possibleItems}" style="text-align: center">
+            <td th:text="${item.name}" style="text-align: center;color: #4be06a"></td>
+        </tr>
         </tbody>
     </table>
     <div th:if="${#lists.isEmpty(riven.possibleItems)}" class="riven-div">
@@ -144,7 +144,7 @@
                 </tbody>
             </table>
         </div>
-     </div>
+    </div>
 </div>
 </body>
 </html>

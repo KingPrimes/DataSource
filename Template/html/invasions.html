@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>入侵</title>
-    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
     <style>
         hr {
             margin: 2px;
@@ -102,7 +102,7 @@
             <table>
                 <tr>
                     <!-- 派系图标 -->
-                    <td><img th:src="@{'/img/faction/'+${t.getFactionName()}+'.png'}"/></td>
+                    <td><img th:src="@{'img/faction/'+${t.getFactionName()}+'.png'}"/></td>
                     <td style="text-align: left;">
                         <ul>
                             <!-- 任务地点 -->
@@ -121,14 +121,13 @@
                         </ul>
                     </td>
                     <!-- 派系图标 -->
-                    <td><img th:src="@{'/img/faction/'+${t.getDefenderFactionName()}+'.png'}"/></td>
+                    <td><img th:src="@{'img/faction/'+${t.getDefenderFactionName()}+'.png'}"/></td>
                 </tr>
 
                 <!-- 进度与奖励 -->
                 <tr>
                     <td th:text="${t.DefenderFaction}+' '+${t.getCompletion()}+'%'"></td>
                     <td>
-                        奖励
                         <table class="invasionsReward">
                             <tr>
                                 <!-- 攻方奖励 -->

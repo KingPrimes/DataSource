@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link th:href="@{/css/fonts.css}" rel="stylesheet"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
     <title>平原</title>
     <style>
         /* 兼容性字体设置 */
@@ -125,11 +125,11 @@
                             th:classappend="${zariman.isCorpus} ? 'cold' : 'warm'"></td>
                     </tr>
                     <tr>
-                        <td><img th:src="${earth.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
-                        <td><img th:src="${cetus.isDay} ? @{/img/day.png} : @{/img/night.png}"/></td>
-                        <td><img th:src="${vallis.isWarm} ? @{/img/day.png} : @{/img/cold.png}"/></td>
-                        <td><img th:if="${cambion.active} == FASS" th:src="@{/img/day.png}"/>
-                            <img th:if="${cambion.active} != FASS" th:src="@{/img/night.png}"/>
+                        <td><img th:src="${earth.isDay} ? @{img/day.png} : @{img/night.png}"/></td>
+                        <td><img th:src="${cetus.isDay} ? @{img/day.png} : @{img/night.png}"/></td>
+                        <td><img th:src="${vallis.isWarm} ? @{img/day.png} : @{img/cold.png}"/></td>
+                        <td><img th:if="${cambion.active} == FASS" th:src="@{img/day.png}"/>
+                            <img th:if="${cambion.active} != FASS" th:src="@{img/night.png}"/>
                         </td>
                         <td></td>
                     </tr>
