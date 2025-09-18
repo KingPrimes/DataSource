@@ -107,7 +107,7 @@
 					</tr>
 					<tr>
 						<td th:text="${#lists.isEmpty(v.manifest)} ? '虚空商人 到来:' : '虚空商人 离去:'"></td>
-						<td th:text="${not #lists.isEmpty(v.manifest)} ? ${v.activation.getTime()}:${v.expiry.getTime()}"></td>
+						<td th:text="${#lists.isEmpty(v.manifest)} ? ${v.activation.getTime()}:${v.expiry.getTime()}"></td>
 					</tr>
 				</table>
 			</div>
