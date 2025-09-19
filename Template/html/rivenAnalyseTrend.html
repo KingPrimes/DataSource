@@ -62,7 +62,6 @@
                 倾向：
                 <span th:text="${tm.newDot + '('+ tm.newNum + ')' }" class="trend"></span>
             </p>
-            <p>此前版本倾向：<span th:text="${tm.oldDot + '('+ tm.oldNum + ')' }" class="trend_old"></span></p>
             <p>武器类型：<span th:text="${tm.weaponType}" class="weapons_type"></span></p>
             <p>具体分析结果：</p>
             <div th:each="ats:${tm.attributes}">
