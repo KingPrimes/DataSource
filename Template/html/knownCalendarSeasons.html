@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>1999日历</title>
+    <link th:href="@{css/index.css}" rel="stylesheet"/>
+    <link th:href="@{css/fonts.css}" rel="stylesheet"/>
+    <style>
+        .season {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .season-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ddd;
+            text-align: center;
+        }
+
+        /* 月份横向排列容器 (替换Flexbox) */
+        .months-container {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .month-section {
+            float: left;
+            width: 32%;
+            margin-right: 2%;
+            padding: 12px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+        }
+
+        .month-section:last-child {
+            margin-right: 0;
+        }
+
+        .month-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: center;
+            padding: 5px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        /* 日期网格 (替换Grid布局) */
+        .days-grid {
+            width: 100%;
+        }
+
+        .day-row {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .day-item {
+            float: left;
+            width: 30%;
+            margin-right: 1.33%;
+            margin-left: 1.33%;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            min-height: 120px;
+        }
+
+        .day-item:nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .day-header {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #666;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .event {
+            margin: 6px 0;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+        .CET_CHALLENGE {
+            background-color: #e3f2fd;
+            border-left: 3px solid #2196f3;
+            border-bottom: 3px dashed #7c6e86;
+        }
+
+        .CET_REWARD {
+            background-color: #e8f5e9;
+            border-left: 3px solid #4caf50;
+            border-bottom: 3px dashed #7c6e86;
+        }
+
+        .CET_UPGRADE {
+            background-color: #fff8e1;
+            border-left: 3px solid #ffc107;
+            border-bottom: 3px dashed #7c6e86;
+        }
+
+        .event-type {
+            font-weight: bold;
+        }
+
+        .event-content {
+            margin-top: 3px;
+            line-height: 1.4;
+        }
+
+        .no-event {
+            color: #999;
+            font-style: italic;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #757575;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<w>4500</w>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="content">
+            <div th:if="${seasons != null and not seasons.isEmpty()}">
+                <div th:each="season : ${seasons}" class="season">
+                    <!-- 季节标题 -->
+                    <div class="season-title"
+                         th:text="${season.season.name} + ' 第' + ${season.yearIteration} + '年 (版本: ' + ${season.version} + ')'"></div>
+
+                    <!-- 月份横向排列容器 -->
+                    <div class="months-container">
+                        <!-- 月份列表 -->
+                        <div th:each="monthEntry : ${season.monthDays.entrySet()}" class="month-section">
+                            <!-- 月份标题 -->
+                            <div class="month-title" th:text="${monthEntry.key+'月'}"></div>
+
+                            <!-- 日期网格 -->
+                            <div class="days-grid">
+                                <!-- 日期行 - 使用Thymeleaf状态变量实现每4个元素一行 -->
+                                <div th:each="day, stat : ${monthEntry.value}">
+                                    <!-- 每4个元素开始新行 -->
+                                    <div class="day-row" th:if="${stat.index % 3 == 0}">
+                                        <!-- 当前行的4个元素 -->
+                                        <div th:each="i : ${#numbers.sequence(0, 2)}"
+                                             th:with="currentIndex=${stat.index + i}">
+                                            <div th:if="${currentIndex < monthEntry.value.size()}" class="day-item">
+                                                <div class="day-header"
+                                                     th:text="${monthEntry.value[currentIndex].day+'日'}"></div>
+
+                                                <!-- 事件列表 -->
+                                                <div th:if="${monthEntry.value[currentIndex].events != null and not monthEntry.value[currentIndex].events.isEmpty()}">
+                                                    <div th:each="event : ${monthEntry.value[currentIndex].events}"
+                                                         class="event" th:classappend="${event.type}">
+                                                        <span class="event-type"
+                                                              th:text="${event.type.displayName}"></span>
+                                                        <th:block th:if="${event.type.name() == 'CET_CHALLENGE'}">
+                                                            <div class="event-content">
+                                                                <div th:text="${event.challengeInfo?.name}"></div>
+                                                                <div th:text="${event.challengeInfo?.challenge}"></div>
+                                                            </div>
+                                                        </th:block>
+
+                                                        <th:block th:if="${event.type.name() == 'CET_REWARD'}">
+                                                            <div
+                                                                    class="event-content"
+                                                                    th:text="${event.reward}"></div>
+                                                        </th:block>
+
+                                                        <th:block th:if="${event.type.name() == 'CET_UPGRADE'}">
+                                                            <div class="event-content">
+
+                                                                <div th:text="${event.upgradeInfo?.name}"></div>
+                                                                <div th:text="${event.upgradeInfo?.upgrade}"></div>
+                                                            </div>
+                                                        </th:block>
+                                                    </div>
+                                                </div>
+
+                                                <!-- 无事件提示 -->
+                                                <div th:if="${monthEntry.value[currentIndex].events == null or monthEntry.value[currentIndex].events.isEmpty()}"
+                                                     class="no-event">
+                                                    当日无事件
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 无数据提示 -->
+            <div th:if="${seasons == null or seasons.isEmpty()}" class="no-data">
+                没有找到相关日历季节数据
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
