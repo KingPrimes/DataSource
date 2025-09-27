@@ -149,7 +149,7 @@
                 <div th:each="season : ${seasons}" class="season">
                     <!-- 季节标题 -->
                     <div class="season-title"
-                         th:text="${season.season.name} + ' 第' + ${season.yearIteration} + '年 (版本: ' + ${season.version} + ')'"></div>
+                         th:text="${season.season.name} + '&nbsp;&nbsp;&nbsp;第' + ${season.yearIteration} + '年&nbsp;&nbsp;&nbsp;(版本: ' + ${season.version} + ')' + '&nbsp;&nbsp;&nbsp;结束日期：' + ${season.expiry.getTime()}"></div>
 
                     <!-- 月份横向排列容器 -->
                     <div class="months-container">
