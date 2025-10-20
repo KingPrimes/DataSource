@@ -107,12 +107,12 @@
             </thead>
             <tbody>
             <tr th:each="o:${orders}">
-                <td class="sell" th:text="${isBy? '买' : '卖'}">卖</td>
+                <td class="sell" th:text="${o.type.name}">卖</td>
                 <td style="text-align: left">
                     <div class="avatr-image"><img th:src="@{img/market/default-avatar.png}"/></div>
                     <div class="avatr-name"><span th:text="${o.user.ingameName}">xinxing25461fawef664646</span></div>
                 </td>
-                <td class="ingame--OWe2B">在线</td>
+                <td class="ingame--OWe2B" th:text="${o.user.status.getStatus()}">在线</td>
                 <td class="order-row__user-reputation--lGJbY">
                     <span style="color: #00a96c;" th:text="${o.user.reputation}">10</span>
                     <img th:src="@{img/market/icon-smile.png}"/>
@@ -122,7 +122,7 @@
                     <img th:src="@{img/market/icon-platinum.png}"/>
                 </td>
                 <td class="quantity"><span th:text="${o.quantity}">1</span><img th:src="@{img/market/icon-cubes.png}"/></td>
-                <td th:text="${o.modRank}">0</td>
+                <td th:text="${o.rank}">0</td>
             </tr>
             </tbody>
         </table>
