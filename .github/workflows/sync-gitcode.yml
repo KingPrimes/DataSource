@@ -27,14 +27,14 @@ jobs:
           REMOTE: 'https://gitee.com/KingPrime/DataSource.git'
           GIT_USERNAME: KingPrime
           GIT_PASSWORD: ${{ secrets.GIT_EE_COM }}
-  to_cnb:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: yesolutions/mirror-action@master
-        with:
-          REMOTE: 'https://cnb.cool/kingpriems/DataSource.git'
-          GIT_USERNAME: cnb
-          GIT_PASSWORD: ${{ secrets.CNB_COOL }}
+#  to_cnb:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - uses: yesolutions/mirror-action@master
+#        with:
+#          REMOTE: 'https://cnb.cool/kingpriems/DataSource.git'
+#          GIT_USERNAME: cnb
+#          GIT_PASSWORD: ${{ secrets.CNB_COOL }}
